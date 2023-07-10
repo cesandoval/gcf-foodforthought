@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { useLocationStore } from '~/store/location'
+const locationStore = useLocationStore()
+const { changeCurrentLocation } = locationStore
+
+changeCurrentLocation('landing')
+</script>
 
 <template>
   <DThreeBox />
@@ -12,7 +18,7 @@
         Green City Force
       </p>
     </div>
-    <img class="-mt-12 -mb-44" src="/imgs/COVER_SKETCH.png" alt="" />
+    <img class="-mt-12 -mb-44" src="/imgs/cover_sketch.png" alt="" />
   </div>
   <SeparatorLine />
 </template>
