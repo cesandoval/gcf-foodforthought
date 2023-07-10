@@ -12,7 +12,7 @@ const { changeCurrentLocation } = locationStore
 </script>
 
 <template>
-  <div class="w-11/12 fixed bottom-5 left">
+  <div class="w-11/12 fixed bottom-5 left-1/2 -translate-x-2/4">
     <a href="#">
       <div
         :class="`h-14 w-full grid grid-cols-1 place-items-center ${color} rounded-full text-white uppercase`"
