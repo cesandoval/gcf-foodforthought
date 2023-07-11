@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from 'vue'
-import data from '~/assets/vaccines.json'
 import * as d3 from 'd3'
 import { useWindowSize } from '@vueuse/core'
 
@@ -55,6 +54,9 @@ const makeSVG = (farmObject, height, margin, width) => {
     g.call((g) =>
       g
         .append('g')
+        .attr('transform', (d, i) => {
+          return 'translate( ' + x(i) + ' , ' + 220 + '),' + 'rotate(45)'
+        })
         .attr('transform', `translate(0,${margin.top})`)
         .call(d3.axisTop(x).ticks(null, 'd'))
         .call((g) => g.select('.domain').remove())
