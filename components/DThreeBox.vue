@@ -54,12 +54,13 @@ const makeSVG = (farmObject, height, margin, width) => {
     g.call((g) =>
       g
         .append('g')
-        .attr('transform', (d, i) => {
-          return 'translate( ' + x(i) + ' , ' + 220 + '),' + 'rotate(45)'
-        })
+        .style('text-anchor', 'start')
         .attr('transform', `translate(0,${margin.top})`)
         .call(d3.axisTop(x).ticks(null, 'd'))
         .call((g) => g.select('.domain').remove())
+        .selectAll('text')
+        .attr('dy', '-1em')
+        .attr('transform', 'rotate(90 90 10)')
     )
 
   const yAxis = (g) =>
@@ -128,7 +129,7 @@ onMounted(async () => {
 
   const bayViewData = await formatYield('csv/2022_Bayview.csv')
 
-  const margin = { top: 20, right: 1, bottom: 40, left: 40 }
+  const margin = { top: 200, right: 1, bottom: 40, left: 80 }
   const height = 16
 
   // const xAxis = (g) =>
