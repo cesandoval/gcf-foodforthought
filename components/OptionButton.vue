@@ -32,7 +32,7 @@ const triggerFunction = (type, option) => {
 }
 
 const buttonClass =
-  'border-2 border-black rounded-full px-3 capitalize hover:bg-black hover:text-white'
+  'border-2 border-black rounded-full px-3 capitalize hover:bg-black hover:text-white snap-center'
 const extraClass = ' !bg-black !text-white'
 </script>
 
@@ -43,7 +43,7 @@ const extraClass = ' !bg-black !text-white'
       class="mt-4 grid grid-cols-1 place-items-center overflow-x-scroll scrollbar-hide"
     >
       <div class="flex gap-x-2 scrollbar-hide">
-        <ul class="contents whitespace-nowrap scrollbar-hide">
+        <ul class="contents whitespace-nowrap scrollbar-hide snap-x">
           <li
             v-for="option in options"
             :key="option"
@@ -60,4 +60,15 @@ const extraClass = ' !bg-black !text-white'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
