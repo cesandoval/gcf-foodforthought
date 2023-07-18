@@ -11,6 +11,9 @@ elementVisibility.value.landing = useElementVisibility(landing)
 const howWeWork = ref(null)
 elementVisibility.value.howWeWork = useElementVisibility(howWeWork)
 
+const ourEcoHub = ref(null)
+elementVisibility.value.ourEcoHub = useElementVisibility(ourEcoHub)
+
 const whatWeDo = ref(null)
 elementVisibility.value.whatWeDo = useElementVisibility(whatWeDo)
 
@@ -25,6 +28,8 @@ const currentSectionButton = computed(() => {
     return { title: `Let's get started 🚀`, color: 'bg-blue-400' }
   else if (elementVisibility.value.howWeWork)
     return { title: 'How we Work 🏋️', color: 'bg-yellow-400' }
+  else if (elementVisibility.value.ourEcoHub)
+    return { title: 'Bay View', color: 'bg--400' }
   else if (elementVisibility.value.whatWeDo)
     return { title: 'What we do', color: 'bg-green-400' }
   else if (elementVisibility.value.getToKnowUs)
@@ -45,11 +50,11 @@ const currentSectionButton = computed(() => {
     <YourAge />
     <WhereDoYouLive />
     <div ref="howWeWork"><HowWeWork /></div>
-    <OurEcoHub />
+    <div ref="ourEcoHub"><OurEcoHub /></div>
     <div ref="whatWeDo"><WhatWeDo /></div>
     <div ref="getToKnowUs"><GetToKnowUs /></div>
-    <OurCurrentEvents />
-    <MemberProfile />
+    <div ref="ourCurrentEvents"><OurCurrentEvents /></div>
+    <div ref="memberProfile"><MemberProfile /></div>
     <div ref="letsMeet"><LetsMeet /></div>
 
     <SectionButton
